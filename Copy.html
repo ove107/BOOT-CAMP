@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<meta charset="US-ASCII">
+<head>
+	<title>copy</title>
+	<script type="text/javascript">
+		var obj={
+			name: "Ommar",
+			sal: 15100,
+			dob: "MAY 15"
+		}
+		console.log("value of obj1 is: ");
+		console.log(obj.name+" "+obj.sal+" "+obj.dob);
+
+		var obj1= JSON.parse(JSON.stringify(obj));
+		obj1.name="Amar";
+		console.log("after changing in object2: ");
+		console.log(obj.name+" "+obj.sal+" "+obj.dob);
+		console.log(obj1.name+" "+obj1.sal+" "+obj1.dob);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
