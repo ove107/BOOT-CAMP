@@ -5,9 +5,19 @@
 
 <script> 
 
-var amount  = prompt("Please enter the amount","");
-var no_of_year  = prompt("Please enter the time","");
-var rate_of_interest  = prompt("Please enter the rate of interest","");
+var amount, no_of_year,rate_of_interest;
+amount = "";
+no_of_year = "";
+rate_of_interest = "";
+while(amount===""){
+	amount  = prompt("Please enter the amount","");
+}
+while(no_of_year===""){
+	no_of_year  = prompt("No of year","");
+}
+while(rate_of_interest===""){
+	rate_of_interest  = prompt("Rate","");
+}
 if ((amount!= null)&&(no_of_year!=null)&&(rate_of_interest!=null)) {
     document.write("Hello ! Simple interest is = "+(parseInt(amount)*parseInt(rate_of_interest)*parseInt(no_of_year))/100);
 }
