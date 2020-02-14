@@ -1,11 +1,11 @@
- 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 <head>
 
 <script> 
-function check_Palindrome(str_entry){
+function check_Palindrome(){
+	var str_entry =document.getElementById("str").value;
    var cstr = str_entry.toLowerCase().replace(/[^a-zA-Z0-9]+/g,'');
 	var ccount = 0;
 
@@ -43,7 +43,7 @@ function check_Palindrome(str_entry){
 <label>
 Enter string for checking palindrome 
 </label>
-<input type="text" id="t1"></input><br>
-<button onclick="check_Palindrome(t1.value)">submit</button>
+<input type="text" id="str"></input><br>
+<button onclick="check_Palindrome();">submit</button>
 </body>
 </html>
