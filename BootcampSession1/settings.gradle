@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':Login'
 rootProject.name='BootcampSession1'

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,8 +59,14 @@
                 tools:layout_editor_absoluteX="116dp"
                 tools:layout_editor_absoluteY="467dp" />
 
-
-
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                tools:layout_editor_absoluteX="116dp"
+                tools:layout_editor_absoluteY="467dp" />
 
             <!-- <Button
                  android:id="@+id/button5"
