@@ -23,7 +23,7 @@ public class Volatile extends Thread{
         }
     }
 
-    public class App {
+    class App {
 
         public static void main(String[] args) {
             Volatile vol = new Volatile();
@@ -35,4 +35,4 @@ public class Volatile extends Thread{
         }
     }
 
-}
+
