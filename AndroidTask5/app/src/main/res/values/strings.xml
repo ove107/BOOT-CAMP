@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Android-Task5</string>
+    <string name="storage">Storage Settings</string>
+    <string name="network">Network Settings</string>
+    <string name="display">Display Settings</string>
+    <string name="display_description">Display is working fine</string>
+    <string name="storage_description">Storage is working fine</string>
+    <string name="network_description">Network is working fine</string>
+</resources>
