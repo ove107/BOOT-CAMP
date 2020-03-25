@@ -1,2 +1,1 @@
-# BOOT-CAMP
-it contains solution of the exercises performed during the boot camp 
+Design a room database and insert data in it and display using recycler view
