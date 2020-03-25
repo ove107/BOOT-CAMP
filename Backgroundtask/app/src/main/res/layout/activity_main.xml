@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:tooltipText="Your image appear here"
+        android:id="@+id/image"
+        android:padding="40dp"
+        android:layout_margin="40dp"
+        android:background="@color/colorPrimaryDark"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="40dp"
+        android:layout_below="@+id/image"
+        android:id="@+id/edittxt"
+        android:background="@color/edit"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+         android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/AsyncDownload"
+        android:layout_below="@+id/edittxt"
+        android:text="Async"
+        android:background="@color/colorAccent"/>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/servicedownload"
+      android:layout_toRightOf="@+id/AsyncDownload"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/edittxt"
+        android:layout_marginTop="30dp"
+        android:text="service"
+        android:background="@color/colorAccent"
+        />
+
+
+
+</RelativeLayout>
