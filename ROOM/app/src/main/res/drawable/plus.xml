@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/plis"
+        android:width="300dp"
+        android:height="300dp">
+
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="2dp"
+                android:color="#EC0505"/>
+            <solid android:color="#95F48727"/>
+            <corners android:radius="500dp"/>
+        </shape>
+
+
+    </item>
+
+
+</layer-list>
