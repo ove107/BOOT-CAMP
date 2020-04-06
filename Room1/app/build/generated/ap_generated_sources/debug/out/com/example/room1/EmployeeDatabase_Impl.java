@@ -28,9 +28,9 @@ public final class EmployeeDatabase_Impl extends EmployeeDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Employee_Table` (`name` TEXT NOT NULL, `phone` TEXT NOT NULL, `Address` TEXT NOT NULL, PRIMARY KEY(`name`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Employee_Table` (`employee_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `phone` TEXT NOT NULL, `Address` TEXT NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f0dfa98cc02e30449d1a0467ac934d37\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"671d2c43d7e27a49d23db4be0a2996eb\")");
       }
 
       @Override
@@ -60,8 +60,9 @@ public final class EmployeeDatabase_Impl extends EmployeeDatabase {
 
       @Override
       protected void validateMigration(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsEmployeeTable = new HashMap<String, TableInfo.Column>(3);
-        _columnsEmployeeTable.put("name", new TableInfo.Column("name", "TEXT", true, 1));
+        final HashMap<String, TableInfo.Column> _columnsEmployeeTable = new HashMap<String, TableInfo.Column>(4);
+        _columnsEmployeeTable.put("employee_id", new TableInfo.Column("employee_id", "INTEGER", true, 1));
+        _columnsEmployeeTable.put("name", new TableInfo.Column("name", "TEXT", true, 0));
         _columnsEmployeeTable.put("phone", new TableInfo.Column("phone", "TEXT", true, 0));
         _columnsEmployeeTable.put("Address", new TableInfo.Column("Address", "TEXT", true, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysEmployeeTable = new HashSet<TableInfo.ForeignKey>(0);
@@ -74,7 +75,7 @@ public final class EmployeeDatabase_Impl extends EmployeeDatabase {
                   + " Found:\n" + _existingEmployeeTable);
         }
       }
-    }, "f0dfa98cc02e30449d1a0467ac934d37", "a7685e029f3169bb5d7473fa7275eaa7");
+    }, "671d2c43d7e27a49d23db4be0a2996eb", "3b44d1b50e4049dfdbf0033626cdb41a");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

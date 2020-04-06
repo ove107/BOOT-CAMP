@@ -33,56 +33,54 @@ public final class EmployeeDao_Impl implements EmployeeDao {
     this.__insertionAdapterOfEmployee = new EntityInsertionAdapter<Employee>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `Employee_Table`(`name`,`phone`,`Address`) VALUES (?,?,?)";
+        return "INSERT OR ABORT INTO `Employee_Table`(`employee_id`,`name`,`phone`,`Address`) VALUES (nullif(?, 0),?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, Employee value) {
+        stmt.bindLong(1, value.getEmpId());
         if (value.getName() == null) {
-          stmt.bindNull(1);
-        } else {
-          stmt.bindString(1, value.getName());
-        }
-        if (value.getPhone() == null) {
           stmt.bindNull(2);
         } else {
-          stmt.bindString(2, value.getPhone());
+          stmt.bindString(2, value.getName());
         }
-        if (value.getAddress() == null) {
+        if (value.getPhone() == null) {
           stmt.bindNull(3);
         } else {
-          stmt.bindString(3, value.getAddress());
+          stmt.bindString(3, value.getPhone());
+        }
+        if (value.getAddress() == null) {
+          stmt.bindNull(4);
+        } else {
+          stmt.bindString(4, value.getAddress());
         }
       }
     };
     this.__updateAdapterOfEmployee = new EntityDeletionOrUpdateAdapter<Employee>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `Employee_Table` SET `name` = ?,`phone` = ?,`Address` = ? WHERE `name` = ?";
+        return "UPDATE OR ABORT `Employee_Table` SET `employee_id` = ?,`name` = ?,`phone` = ?,`Address` = ? WHERE `employee_id` = ?";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, Employee value) {
+        stmt.bindLong(1, value.getEmpId());
         if (value.getName() == null) {
-          stmt.bindNull(1);
-        } else {
-          stmt.bindString(1, value.getName());
-        }
-        if (value.getPhone() == null) {
           stmt.bindNull(2);
         } else {
-          stmt.bindString(2, value.getPhone());
+          stmt.bindString(2, value.getName());
         }
-        if (value.getAddress() == null) {
+        if (value.getPhone() == null) {
           stmt.bindNull(3);
         } else {
-          stmt.bindString(3, value.getAddress());
+          stmt.bindString(3, value.getPhone());
         }
-        if (value.getName() == null) {
+        if (value.getAddress() == null) {
           stmt.bindNull(4);
         } else {
-          stmt.bindString(4, value.getName());
+          stmt.bindString(4, value.getAddress());
         }
+        stmt.bindLong(5, value.getEmpId());
       }
     };
     this.__preparedStmtOfDeleteAllEmployee = new SharedSQLiteStatement(__db) {
@@ -149,6 +147,7 @@ public final class EmployeeDao_Impl implements EmployeeDao {
         }
         final Cursor _cursor = __db.query(_statement);
         try {
+          final int _cursorIndexOfEmpId = _cursor.getColumnIndexOrThrow("employee_id");
           final int _cursorIndexOfName = _cursor.getColumnIndexOrThrow("name");
           final int _cursorIndexOfPhone = _cursor.getColumnIndexOrThrow("phone");
           final int _cursorIndexOfAddress = _cursor.getColumnIndexOrThrow("Address");
@@ -162,6 +161,9 @@ public final class EmployeeDao_Impl implements EmployeeDao {
             final String _tmpAddress;
             _tmpAddress = _cursor.getString(_cursorIndexOfAddress);
             _item = new Employee(_tmpPhone,_tmpName,_tmpAddress);
+            final int _tmpEmpId;
+            _tmpEmpId = _cursor.getInt(_cursorIndexOfEmpId);
+            _item.setEmpId(_tmpEmpId);
             _result.add(_item);
           }
           return _result;
